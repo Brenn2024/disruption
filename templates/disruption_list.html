@@ -27,8 +27,10 @@
                 <td>{{ disruption.section }}</td>
                 <td>{{ disruption.lotnum }}</td>
                 <td>{{ disruption.time }}</td>
+                {% if disruption.author.pk == request.user.pk %} 
                 <td><a href="{% url 'disruption_edit' disruption.pk %}">Edit</a> 
                     <a href="{% url 'disruption_delete' disruption.pk %}">Delete</a> </td>
+                {% endif %}
             </tr>
             {% empty %}
             <tr>

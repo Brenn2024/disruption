@@ -28,10 +28,12 @@
     </tbody>
         </table>
 </div>
-<div> 
+<div>  
+{% if disruption.author.pk == request.user.pk %}
 <p><a href="{% url 'disruption_edit' disruption.pk %}">Edit</a> 
 <a href="{% url 'disruption_delete' disruption.pk %}">Delete</a> 
 </p> 
+{% endif %}
 <p>Back to <a href="{% url 'disruption_list' %}">All Disruptions</a>.</p> 
 </div> 
 {% endblock content %}
